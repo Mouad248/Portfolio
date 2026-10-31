@@ -1,0 +1,35 @@
+# --- Raw survey microdata (HCP): do not redistribute ---
+BDD/
+dirichlet/data/raw/
+dirichlet/data/processed/
+
+# --- Household-level model outputs (derived from microdata) ---
+dirichlet/outputs/tables/*/*membership*.xlsx
+
+# --- Heavy / regenerable artefacts ---
+dirichlet/outputs/cache/
+*.nc
+*.npz
+*.npy
+
+# --- Third-party references (not authored by me): cite, do not republish ---
+Article-Estimation of LES Consumption elasticity for Morocco*.docx
+Formes_Fonctionnelles_et_Parametrisation_dans_les_*.pdf
+
+# --- Raw software logs (contain local paths) ---
+*.smcl
+GAMS/*.log
+GAMS/*.lst
+GAMS/*.lxi
+GAMS/225a/
+*.gdx
+
+# --- Environments and caches ---
+.venv/
+venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# --- Figures removed: false category labels (kept for reference only) ---
+_removed_wrong_labels/
