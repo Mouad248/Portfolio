@@ -1,8 +1,12 @@
 # 🏥 Clinical KPI Dashboard  
-A complete end‑to‑end healthcare analytics project using Python, Power BI and ETL pipelines.
+A personal healthcare reporting project using Python preparation and a supplied Power BI report.
 
 This project simulates a real clinical rehabilitation workflow, transforming raw patient data into actionable insights through data cleaning, exploratory analysis, KPI generation and interactive dashboards.  
-It was designed to demonstrate professional skills in Healthcare Data Analysis, ETL, Python, DAX, and Power BI dashboard design.
+It demonstrates KPI definitions, Python data preparation and dashboard reporting on 10 synthetic records. Embedded DAX and PBIX model internals have not been independently audited.
+
+[Short case study](CASE_STUDY.md) · [Screenshot gallery](screenshots/README.md) ·
+[Verified SQLite companion](sql/README.md) · [Implementation evidence](../portfolio-guide/BI_IMPLEMENTATION.md) ·
+[Portfolio](../README.md)
 
 ---
 
@@ -17,7 +21,7 @@ The goal is to build a full analytical pipeline that mirrors real-world healthca
 - Exploratory Data Analysis (EDA)  
 - Clinical visualizations  
 - Power BI dashboard  
-- ETL automation  
+- Repeatable, manually run ETL
 
 ---
 
@@ -88,7 +92,8 @@ This document includes:
 | Data Cleaning | Python, Pandas |
 | Analysis | Python, Seaborn, Matplotlib |
 | ETL | Python, Custom Pipeline |
-| Dashboard | Power BI, DAX |
+| Dashboard | Power BI report artifact and screenshots; embedded DAX unverified |
+| SQL companion | SQLite views, compared against the original Python ETL; separate from the PBIX |
 | Documentation | Markdown, GitHub |
 
 ---
@@ -103,7 +108,7 @@ The ETL pipeline (`etl_pipeline.py`) performs:
 - Creating KPIs (recovery days, pain improvement, mobility gain, success flag)  
 - Exporting cleaned dataset for analysis and dashboarding  
 
-This ensures a reproducible and automated workflow.
+This provides a repeatable workflow when run manually. No scheduler is supplied.
 
 ---
 
@@ -135,6 +140,9 @@ The `.pbix` file is available in the `powerbi/` folder.
 ---
 
 ## 📸 Dashboard Screenshots
+
+See the [indexed gallery](screenshots/README.md) for all four original images,
+their interpretation and the comparison with the bundled CSV.
 
 Below are key views of the Power BI dashboard included in this project.
 
@@ -169,13 +177,21 @@ Relationship between number of sessions and recovery performance.
 
 ## 🔬 Key Insights
 
-- Muscle injuries recover faster and show higher mobility gains.  
-- Joint injuries require more sessions and have lower success rates.  
-- Pain improvement strongly correlates with mobility gain.  
-- Most successful cases occur with fewer than 12 sessions.  
-- Higher initial mobility predicts faster recovery.  
+The [Python-vs-SQL comparison](sql/README.md) verifies these descriptive results for
+the current 10 synthetic records:
 
-These insights mimic real rehabilitation analytics used in clinical decision-making.
+| Indicator | Value |
+| --- | --- |
+| Average recovery days (end minus start date) | 33.30 |
+| Average pain improvement | 4.00 |
+| Average mobility gain | 25.60 |
+| Average sessions | 13.70 |
+| Success under the project's threshold rule | 100% |
+
+All records meet `mobility_gain > 20 AND pain_improvement > 2`; this sample cannot
+support a claim that one injury group has a lower success rate. These are synthetic
+descriptions, not evidence of treatment effectiveness. See the
+[existing-issues note](../portfolio-guide/EXISTING_ISSUES.md) for older narrative discrepancies.
 
 ---
 
@@ -183,7 +199,9 @@ These insights mimic real rehabilitation analytics used in clinical decision-mak
 
 ### 1. Run the ETL Pipeline
 ```bash
-python src/etl_pipeline.py
+cd src
+python etl_pipeline.py
+cd ..
 ```
 
 ### 2. Open the Notebooks
@@ -200,6 +218,19 @@ Use the cleaned dataset:
 ```
 data/clinical_data_cleaned.csv
 ```
+
+### 5. Verify the separate SQL companion
+
+From this project root, with pandas and numpy available:
+
+```bash
+python sql/verify_companion.py
+```
+
+This uses an in-memory SQLite database and compares the original Python functions
+with SQL, without overwriting data. It is not claimed to power the existing PBIX.
+For Power BI refresh, inspect source settings in Desktop first; this review does
+not verify which file the report binds to.
 
 ---
 

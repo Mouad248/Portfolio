@@ -1,5 +1,20 @@
 # NorthPeak Analytics - SaaS FP&A & Forecasting Model
 
+**Personal project using a fictional business and synthetic data.**
+[Short case study](CASE_STUDY.md) · [Dashboard and chart gallery](screenshots/README.md) ·
+[Implementation evidence](../portfolio-guide/BI_IMPLEMENTATION.md) · [Portfolio](../README.md)
+
+The gallery retains the original generated images. The build guide documents a
+model design and DAX examples; embedded PBIX definitions have not been independently
+audited in this review. The existing demo reference below is preserved; no new
+deployment is part of this documentation update.
+
+**[Explore the live interactive demo →](https://northpeak-analytics-mouade.appreciativebow.chatgpt.site)**
+
+The public browser demo includes executive KPIs, budget variance, FY2026 scenarios,
+CSV downloads and a decision brief. It reads the model's exported synthetic data;
+the original Power BI report and Python pipeline are included below.
+
 **In plain English:** this project predicts a subscription-software company's future
 revenue, checks how its actual results compared to the budget, maps out best / middle /
 worst-case outcomes for next year, and sums it up in a one-page memo for leadership -

@@ -1,5 +1,14 @@
 # Household Consumption Structure in Morocco: Integrated Econometric Approaches and Household Typology
 
+**Personal research project.** [Short case study](CASE_STUDY.md) ·
+[Research figure gallery](screenshots/README.md) ·
+[Implementation evidence](../portfolio-guide/BI_IMPLEMENTATION.md) · [Portfolio](../README.md)
+
+![Existing K=6 household budget profiles](screenshots/k6-budget-profiles-9-categories.png)
+
+The gallery brings together existing descriptive and segmentation outputs, with
+PNG previews of selected PDFs. No survey estimation was rerun for these previews.
+
 Applied economics and statistics project analysing how Moroccan households allocate their budgets, using the two national household surveys **ENNVM 2007** and **ENCDM 2014** (HCP). Three complementary approaches are combined: a demand system (LES), a multilevel Working–Leser model, and Dirichlet mixture models for latent consumption profiles.
 
 *Résumé (FR) : étude de la structure de consommation des ménages marocains (2007 et 2014) par trois approches complémentaires : système de dépenses linéaire (LES, GAMS), modèle de Working–Leser multiniveau (Stata) et modèles de mélange de Dirichlet (DMM / DPMM, Python). Les rapports techniques détaillés sont en français dans `dirichlet/outputs/rapports/`.*

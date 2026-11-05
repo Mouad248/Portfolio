@@ -1,6 +1,16 @@
 # Clinical KPI Dashboard
 
-A data analysis project focused on clinical performance indicators, patient outcomes, and rehabilitation efficiency. Built using Python, Pandas, SQL, and Power BI, this dashboard transforms raw clinical data into actionable insights for healthcare decision-making.
+A personal reporting project focused on rehabilitation indicators, using Python,
+pandas and a supplied Power BI report. The bundled data contains 10 synthetic
+records, not real patients. The separately added [SQLite companion](../sql/README.md)
+is verified against Python and is not claimed to power the existing PBIX.
+
+[Case study](../CASE_STUDY.md) · [Gallery](../screenshots/README.md) ·
+[Implementation evidence and verification limits](../../portfolio-guide/BI_IMPLEMENTATION.md)
+
+Model relationships, embedded DAX, Power Query steps and source bindings have not
+been independently inspected inside the PBIX. Descriptions below are documentation,
+not evidence of a verified semantic model or successful refresh.
 
 ## Project Overview
 
@@ -89,9 +99,15 @@ df["success"] = (df["mobility_gain"] > 20) & (df["pain_improvement"] > 2)
 
 ## SQL Transformations
 
-- The SQL script includes:
+The snippet below is the original illustrative SQL Server-style example, not an
+executable SQLite script or proof of the PBIX data source. The new
+[runnable SQLite views](../sql/clinical_kpis.sql) also implement full-row duplicate
+removal and injury-type aggregates; [run the comparison](../sql/README.md) to check
+them against the original Python functions.
+
+- This illustrative snippet describes:
 - KPI calculations
-- Injury type grouping
+- An injury-type field for subsequent grouping
 - Success classification
 
 ```SQL
@@ -122,13 +138,17 @@ The Power BI file (dashboard.pbix) includes:
 It provides a clear visual summary of patient outcomes and rehabilitation performance.
 
 ## Data Storytelling
-Key insights extracted from the dashboard:
+The current bundled CSV, evaluated through the existing Python ETL and the SQLite
+companion, gives 33.30 average recovery days, 4.00 average pain improvement, 25.60
+average mobility gain, 13.70 average sessions and 100% rule-based success.
 
-- Patients with muscle injuries recover 18% faster than those with joint injuries.
-- Average pain reduction across all patients is 3.2 points.
-- Mobility improves by an average of 28 points during rehabilitation.
-- Rehabilitation success rate reaches 72%, with most successful cases requiring fewer than 12 sessions.
-- Higher initial mobility correlates with faster recovery, suggesting early functional capacity is a strong predictor of outcome.
+An earlier narrative in this document quoted 18% faster recovery, 3.2 pain
+improvement, 28 mobility gain and 72% success, and made predictive statements.
+Those claims are not supported by the current verification and should not be used
+as portfolio findings. See [existing issues](../../portfolio-guide/EXISTING_ISSUES.md).
+
+The synthetic sample supports a demonstration of calculations and presentation,
+not causal conclusions or evidence of clinical effectiveness.
 
 ## Repository Structure
 

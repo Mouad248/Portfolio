@@ -1,5 +1,22 @@
 # Reinsight — Reinsurance Portfolio Profitability Dashboard
 
+[Short case study](CASE_STUDY.md) · [Populated dashboard gallery](screenshots/README.md) ·
+[Implementation evidence](../portfolio-guide/BI_IMPLEMENTATION.md) · [Portfolio](../README.md)
+
+![Existing application running with bundled demo data](screenshots/profitability-overview.png)
+
+The gallery shows the local profitability page and Cédante 001 analysis after API
+data and charts loaded. These are captures of this React/FastAPI application.
+The separate browser-demo reference below is retained from the existing checkout;
+no deployment is part of this documentation update.
+
+**[Explore the live interactive demo →](https://reinsight-analytics-mouade.appreciativebow.chatgpt.site)**
+
+The public browser adaptation includes portfolio filters, annual and regional
+comparisons, cedant analysis and CSV export. It uses aggregates from the anonymised
+demo dataset and demonstrates a focused subset of this React/FastAPI application.
+Its technical margin includes commissions and charges; definitions are shown in the demo.
+
 An analytics web app that turns reinsurance underwriting data into clear profitability indicators: loss ratio (S/P), technical ratio, profitability by region, line of business and cedant. Personal project.
 
 **Stack:** FastAPI · pandas · React · TypeScript · Vite · Tailwind CSS · shadcn/ui · Recharts
